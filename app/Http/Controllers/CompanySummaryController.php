@@ -10,8 +10,8 @@ use Mockery\Exception;
 
 class CompanySummaryController extends Controller
 {
-    public function __construct(public readonly FinanceServiceInterface $financeService){
-
+    public function __construct(public readonly FinanceServiceInterface $financeService)
+    {
     }
 
     public function showForm()
@@ -30,9 +30,9 @@ class CompanySummaryController extends Controller
 
         try {
             return view('company_summary', [
-                'prices'     => $data,
-                'symbol'     => $companySymbol->symbol,
-                'name'       => $companySymbol->company_name,
+                'prices'    => $data,
+                'symbol'    => $companySymbol->symbol,
+                'name'      => $companySymbol->company_name,
                 'startDate' => $companyDataRequest->get('start_date'),
                 'endDate'   => $companyDataRequest->get('end_date'),
             ]);

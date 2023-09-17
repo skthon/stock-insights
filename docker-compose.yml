@@ -3,7 +3,7 @@ services:
     app:
         build:
             context: .
-        container_name: xm
+        container_name: xm-app
         ports:
             - "8000:80"
         volumes:
