@@ -16,7 +16,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
+        $this->app->bind(FinanceServiceInterface::class, function (Application $app) {
+            return new YahooFinanceService();
+        });
     }
 
     /**
