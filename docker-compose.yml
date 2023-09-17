@@ -1,0 +1,45 @@
+version: "3.9"
+services:
+    app:
+        build:
+            context: .
+        container_name: xm
+        ports:
+            - "8000:80"
+        volumes:
+            - .:/var/www/html
+        networks:
+            - xm
+
+    db:
+        image: mysql:8
+        ports:
+            - "3306:3306"
+        container_name: xm-mysql
+        volumes:
+            - xm_mysql_data:/var/lib/mysql
+            - ./docker:/docker-entrypoint-initdb.d
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: xm
+        networks:
+            - xm
+
+    mailhog:
+        image: mailhog/mailhog
+        container_name: xm-mailhog
+        restart: always
+        tty: true
+        ports:
+            - 1025:1025 # smtp server
+            - 8025:8025 # web ui
+        networks:
+            - xm
+
+volumes:
+    xm_mysql_data:
+
+networks:
+    xm:
+        driver: bridge
