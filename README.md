@@ -1,6 +1,6 @@
-# Task Management application using local database or redmine for storage tasks
+# Company Stock Insights 
 - PR: https://github.com/skthon/stock-insights/pull/1
-- Demo: Pending
+- Demo: https://drive.google.com/file/d/1JB6jPfBOiJK5QJZnC7NMRr89aTYwA_ou/view
 
 # Table of Contents
 - [Requirements and Installation](#requirements-and-installation)
@@ -67,7 +67,6 @@ DB_DATABASE=xm_test
 # Clear the config and Run the test database migrations
 php artisan config:clear
 php artisan migrate --env=testing
-php artisan db:seed --env=testing
 
 # Now run the tests
 php artisan test                            

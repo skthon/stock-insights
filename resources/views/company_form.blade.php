@@ -12,7 +12,6 @@
         <div class="space-y-6">
             <h1 class="content-center text-2xl">Fill the company information</h1>
             @if($errors->has('message')){{ $errors->first('message') }}@endif
-            @csrf
             <div>
                 <label for="symbol" class="block text-gray-700">Company Symbol</label>
                 <input required type="text" name="symbol" placeholder="" value="{{ old('symbol') }}" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500 @if($errors->has('symbol'))border-red-500 @endif">
